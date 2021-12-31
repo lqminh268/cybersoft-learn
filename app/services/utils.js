@@ -16,14 +16,15 @@ export function getEntriesV2(res, def) {
     };
   }
   if (typeof res !== 'undefined' && res.status === 200) {
-    const code = safeParse(res.data.data.code, 500);
-    let message = safeParse(res.data.data.message, '');
+    console.log(res)
+    const code = safeParse(res.status, 500);
+    let message = safeParse(res.statusText, '');
     let data = def;
     if (code === 200) {
-      data = safeParse(res.data.data.entries, {});
+      data = safeParse(res.data, {});
       message = 'SUCCESS';
     } else {
-      data = safeParse(res.data.data.entries, {});
+      data = safeParse(res.data, {});
       message = 'ERRORS';
     }
     return {

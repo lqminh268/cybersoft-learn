@@ -5,6 +5,7 @@ import routes from './routes';
 import reducer from './reducer';
 import { PrivateRoute } from '../components/Guard';
 import injectReducer from '../utils/injectReducer';
+import ThemeConfig from '../theme';
 
 function index() {
   const showContentMain = () => {
@@ -34,7 +35,7 @@ function index() {
     return <Switch>{result}</Switch>;
   };
 
-  return <>{showContentMain()}</>;
+  return <ThemeConfig>{showContentMain()}</ThemeConfig>;
 }
 
 const withReducer = injectReducer({ key: 'homepage', reducer });

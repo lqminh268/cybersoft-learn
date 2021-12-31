@@ -5,7 +5,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import MobileDateTimePicker from '@mui/lab/MobileDateTimePicker';
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select } from '@mui/material';
 import UIPassword from '../../components/UIPassword';
 
 export const MAP_INPUT_TYPE = {
@@ -82,5 +82,13 @@ export const MAP_INPUT_TYPE = {
         ))}
       </Select>
     </FormControl>
+  ),
+  checkbox: props => (
+    <FormControlLabel
+      control={
+        <Checkbox checked={props.value} value={props.value} onClick={props.onClick(props.name)} />
+      }
+      label={props.label}
+    />
   ),
 };

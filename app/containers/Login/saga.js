@@ -5,7 +5,7 @@ import ReduxTypes from '../../redux/constants';
 import authService from '../../services/auth';
 import { MODULE_CONFIG } from './config';
 import { makeSelectCreateMain } from './selectors';
-import { setLocalStorage } from '../../utils/localStorage';
+import { getLocalStorage, setLocalStorage } from '../../utils/localStorage';
 
 const PREFIX = MODULE_CONFIG.key;
 
@@ -18,7 +18,7 @@ export default function* workerCommonSaga() {
 function* handleSave() {
   // info reducer con Matching File
   const reducerMain = yield select(makeSelectCreateMain());
-  const { taiKhoan, matKhau } = reducerMain.dataConfig;
+  const { taiKhoan, matKhau, checkbox } = reducerMain.dataConfig;
   const params = {
     data: {
       taiKhoan: taiKhoan.value,
@@ -27,10 +27,16 @@ function* handleSave() {
   };
   const res = yield call(authService.setting.login, params);
   if (res.code === 200) {
-    setLocalStorage('auth', res.data.role);
-    setLocalStorage('token', res.data.tokens.token);
-    setLocalStorage('expires', res.data.tokens.expires);
-    // localStorage.setItem('data', JSON.stringify(res.data));
+    const saveUserName = {
+      taiKhoan: res.data.taiKhoan,
+      isSave: checkbox.value,
+    };
+    setLocalStorage('auth', res.data.maLoaiNguoiDung);
+    setLocalStorage('token', res.data.accessToken);
+    if (checkbox.value) {
+      setLocalStorage('saveUserName', saveUserName);
+    } else if (getLocalStorage('saveUserName'))
+      localStorage.removeItem('saveUserName');
     yield put(
       dashboardAddNoti({ severity: 'success', content: 'Login Success' }),
     );

@@ -14,20 +14,14 @@ import {
 import { LoadingButton } from '@mui/lab';
 
 const InputComponent = memo(data => {
-  console.log(data)
   return <>{data.componentEl(data)}</>;
 });
-
 // ----------------------------------------------------------------------
 
 export default function LoginForm(props) {
-  const [showPassword, setShowPassword] = useState(false);
   const dataConfig = props.dataConfig;
   const onChange = props.onChange;
   const isLoading = props.isLoading;
-  const handleShowPassword = () => {
-    setShowPassword((show) => !show);
-  };
 
   /* ------------------------------ ONCHANGE DATA ----------------------------- */
   const onChangeData = useCallback(
@@ -40,38 +34,71 @@ export default function LoginForm(props) {
     [dataConfig],
   );
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    props.onInit()
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.onInit();
   };
+
+  const onClickData = useCallback(
+    name => value => {
+      const valueTmp = value.target ? value.target.checked : value;
+      if (valueTmp !== dataConfig[name].value) {
+        onChange({ name, value: valueTmp });
+      }
+    },
+    [dataConfig],
+  );
 
   return (
     <form autoComplete="off" noValidate onSubmit={handleSubmit}>
       <Stack spacing={3}>
         {/* {errors.afterSubmit && <Alert severity="error">{errors.afterSubmit}</Alert>} */}
-        {dataConfig.infoFields.map(each => (
-          <InputComponent
-            {...dataConfig[each]}
-            key={each}
-            onChange={onChangeData}
-          />
-        ))}
+        {dataConfig.infoFields.map(
+          each =>
+            each !== 'checkbox' && (
+              <InputComponent
+                {...dataConfig[each]}
+                key={each}
+                onChange={onChangeData}
+                onClick={onClickData}
+              />
+            ),
+        )}
       </Stack>
 
-      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ my: 2 }}>
-        <FormControlLabel
-          control={<Checkbox checked />}
-          label="Remember me"
-        />
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-between"
+        sx={{ my: 2 }}
+      >
+        {dataConfig.infoFields.map(
+          each =>
+            each === 'checkbox' && (
+              <InputComponent
+                {...dataConfig[each]}
+                key={each}
+                onChange={onChangeData}
+                onClick={onClickData}
+              />
+            ),
+        )}
 
-        <Link
+        {/* <Link
           // component={RouterLink}
           variant="subtitle2" to="/">
           Forgot password?
-        </Link>
+        </Link> */}
       </Stack>
 
-      <LoadingButton disabled={isLoading || !dataConfig.isValidate} fullWidth size="large" type="submit" variant="contained" loading={false}>
+      <LoadingButton
+        disabled={isLoading || !dataConfig.isValidate}
+        fullWidth
+        size="large"
+        type="submit"
+        variant="contained"
+        loading={false}
+      >
         Login
       </LoadingButton>
     </form>

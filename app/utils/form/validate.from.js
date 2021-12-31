@@ -22,7 +22,7 @@ export const MAP_VALIDATE = {
   },
   password: ({ value, isRequired, maxLength }) => {
     let [isValidate, errors] = [true, []];
-    const validRegex = /^.*(?=.{8,})(?=.*\d)(?=.*[a-zA-Z]).*$/g
+    // const validRegex = /^.*(?=.{8,})(?=.*\d)(?=.*[a-zA-Z]).*$/g
     if (
       typeof value === 'undefined' ||
       value === null ||
@@ -38,11 +38,11 @@ export const MAP_VALIDATE = {
     } else if (maxLength !== null && value.length > maxLength) {
       isValidate = false;
       errors = ['This field is required'];
-    } else if (value.match(validRegex)) {
-      isValidate = true;
-    } else {
-      isValidate = false;
-      errors = ['This field must be at least 8 characters and contain at least 1 letter and 1 number'];
+      // } else if (value.match(validRegex)) {
+      //   isValidate = true;
+      // } else {
+      //   isValidate = false;
+      //   errors = ['This field must be at least 8 characters and contain at least 1 letter and 1 number'];
     }
     return { errors, isValidate };
   },
@@ -73,31 +73,8 @@ export const MAP_VALIDATE = {
 
     return { errors, isValidate };
   },
-  user_name: ({ value, isRequired, maxLength }) => {
+  checkbox: ({ value, isRequired, maxLength }) => {
     let [isValidate, errors] = [true, []];
-    const validRegex = /\s/g
-    if (
-      typeof value === 'undefined' ||
-      value === null ||
-      typeof value === 'undefined'
-    ) {
-      isValidate = false;
-    } else if (value === '' && isRequired) {
-      isValidate = false;
-      errors = ['This field is required'];
-    } else if (value.length > 0 && value.trim() === '' && isRequired) {
-      isValidate = false;
-      errors = ['This field is required'];
-    } else if (maxLength !== null && value.length > maxLength) {
-      isValidate = false;
-      errors = ['This field is required'];
-    } else if (validRegex.test(value)) {
-      isValidate = false;
-      errors = [`This field can't have whitespace`];
-    } else {
-      isValidate = true;
-    }
-
     return { errors, isValidate };
   },
 };

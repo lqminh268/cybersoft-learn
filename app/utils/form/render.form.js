@@ -14,17 +14,6 @@ export const MAP_INPUT_TEMPLATE = {
     }),
     componentEl: MAP_INPUT_TYPE.singleLineText,
   },
-  user_name: {
-    ...initElementExplicit({
-      name: 'email',
-      value: '',
-      maxLength: MAX_LCODE,
-      isRequired: true,
-      label: 'Email',
-      validate: MAP_VALIDATE.user_name,
-    }),
-    componentEl: MAP_INPUT_TYPE.singleLineText,
-  },
   email: {
     ...initElementExplicit({
       name: 'email',
@@ -32,9 +21,9 @@ export const MAP_INPUT_TEMPLATE = {
       maxLength: MAX_LCODE,
       isRequired: true,
       label: 'Email',
-      validate: MAP_VALIDATE.singleLineText,
+      validate: MAP_VALIDATE.email,
     }),
-    componentEl: MAP_INPUT_TYPE.singleLineText,
+    componentEl: MAP_INPUT_TYPE.email,
   },
   password: {
     ...initElementExplicit({
@@ -90,5 +79,16 @@ export const MAP_INPUT_TEMPLATE = {
       validate: MAP_VALIDATE.singleLineText,
     }),
     componentEl: MAP_INPUT_TYPE.chipSelect,
+  },
+  checkbox: {
+    ...initElementExplicit({
+      name: 'checkbox',
+      value: false,
+      maxLength: MAX_LCODE,
+      isRequired: true,
+      label: 'checkbox',
+      validate: MAP_VALIDATE.checkbox,
+    }),
+    componentEl: MAP_INPUT_TYPE.checkbox,
   },
 };

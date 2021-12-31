@@ -3,9 +3,9 @@ import { MAP_INPUT_TEMPLATE } from '../../utils/form/render.form';
 export const initDefaultDataConfig = () => ({
   isValidate: false,
   disabled: false,
-  infoFields: ['taiKhoan', 'matKhau'],
+  infoFields: ['taiKhoan', 'matKhau', 'checkbox'],
   taiKhoan: {
-    ...MAP_INPUT_TEMPLATE.email,
+    ...MAP_INPUT_TEMPLATE.singleLineText,
     name: 'taiKhoan',
     isRequired: true,
     label: 'Tài Khoản',
@@ -19,6 +19,16 @@ export const initDefaultDataConfig = () => ({
     label: 'Mật Khẩu',
     isDisabled: false,
     grid: 6,
+  },
+  checkbox: {
+    ...MAP_INPUT_TEMPLATE.checkbox,
+    name: 'checkbox',
+    isRequired: false,
+    label: 'Remember Me',
+    isDisabled: false,
+    isValidate: true,
+    value: true,
+    grid: 12,
   },
 });
 
