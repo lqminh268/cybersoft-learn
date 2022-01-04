@@ -4,26 +4,26 @@ export const initDefaultDataConfig = () => ({
   isValidate: false,
   disabled: false,
   infoFields: [
-    'user_name',
-    'full_name',
+    'taiKhoan',
+    'hoTen',
     'soDT',
     'email',
-    'password',
+    'matKhau',
     'confirmPassword',
   ],
-  user_name: {
+  taiKhoan: {
     ...MAP_INPUT_TEMPLATE.singleLineText,
-    name: 'user_name',
+    name: 'taiKhoan',
     isRequired: true,
     label: 'Username',
     isDisabled: false,
     grid: 6,
   },
-  full_name: {
+  hoTen: {
     ...MAP_INPUT_TEMPLATE.singleLineText,
-    name: 'full_name',
+    name: 'hoTen',
     isRequired: true,
-    label: 'Fullname',
+    label: 'Name',
     isDisabled: false,
     grid: 6,
   },
@@ -43,9 +43,9 @@ export const initDefaultDataConfig = () => ({
     isDisabled: false,
     grid: 12,
   },
-  password: {
+  matKhau: {
     ...MAP_INPUT_TEMPLATE.password,
-    name: 'password',
+    name: 'matKhau',
     isRequired: true,
     label: 'Password',
     isDisabled: false,

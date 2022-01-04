@@ -1,4 +1,4 @@
-import { LOGIN } from '../../config/common';
+import { LOGIN, REGISTER } from '../../config/common';
 import { getEntriesV2 } from './utils';
 import { callApi } from '../utils/request';
 
@@ -9,7 +9,7 @@ const API = {
         getEntriesV2(res, []),
       ),
     register: params =>
-      callApi(`${LOGIN}/auth/register`, 'POST', params.data)
+      callApi(`${REGISTER}`, 'POST', params.data)
         .then(res => getEntriesV2(res, [])),
   },
 };

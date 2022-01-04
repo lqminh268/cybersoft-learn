@@ -70,32 +70,32 @@ const mainReducerFor = () => {
           //   }
           // }))
           
-          if(name ==="confirmPassword" &&  draft.dataConfig.password.value !== draft.dataConfig.confirmPassword.value){
-            draft.dataConfig.password.isValidate = false;
-            draft.dataConfig.password.errors = ['Not match']
+          if(name ==="confirmPassword" &&  draft.dataConfig.matKhau.value !== draft.dataConfig.confirmPassword.value){
+            draft.dataConfig.matKhau.isValidate = false;
+            draft.dataConfig.matKhau.errors = ['Not match']
             draft.dataConfig.confirmPassword.isValidate = false;
             draft.dataConfig.confirmPassword.errors = ['Not match']
-          }else if(name ==="confirmPassword" &&  draft.dataConfig.password.value === draft.dataConfig.confirmPassword.value){
+          }else if(name ==="confirmPassword" &&  draft.dataConfig.matKhau.value === draft.dataConfig.confirmPassword.value){
             const { errors, isValidate } = draft.dataConfig.confirmPassword.validate(
               draft.dataConfig.confirmPassword,
             );
             draft.dataConfig.confirmPassword.isValidate = isValidate;
             draft.dataConfig.confirmPassword.errors = errors;
-            draft.dataConfig.password.isValidate = isValidate;
-            draft.dataConfig.password.errors = errors;
+            draft.dataConfig.matKhau.isValidate = isValidate;
+            draft.dataConfig.matKhau.errors = errors;
           }
 
-           if(name ==="password" &&  draft.dataConfig.password.value !== draft.dataConfig.confirmPassword.value){
-            draft.dataConfig.password.isValidate = false;
-            draft.dataConfig.password.errors = ['Not match']
+           if(name ==="matKhau" &&  draft.dataConfig.matKhau.value !== draft.dataConfig.confirmPassword.value){
+            draft.dataConfig.matKhau.isValidate = false;
+            draft.dataConfig.matKhau.errors = ['Not match']
             draft.dataConfig.confirmPassword.isValidate = false;
             draft.dataConfig.confirmPassword.errors = ['Not match']
-          }else  if(name ==="password" &&  draft.dataConfig.password.value === draft.dataConfig.confirmPassword.value){
-            const { errors, isValidate } = draft.dataConfig.password.validate(
-              draft.dataConfig.password,
+          }else  if(name ==="matKhau" &&  draft.dataConfig.matKhau.value === draft.dataConfig.confirmPassword.value){
+            const { errors, isValidate } = draft.dataConfig.matKhau.validate(
+              draft.dataConfig.matKhau,
             );
-            draft.dataConfig.password.isValidate = isValidate;
-            draft.dataConfig.password.errors = errors;
+            draft.dataConfig.matKhau.isValidate = isValidate;
+            draft.dataConfig.matKhau.errors = errors;
             draft.dataConfig.confirmPassword.isValidate = isValidate;
             draft.dataConfig.confirmPassword.errors = errors;
           }

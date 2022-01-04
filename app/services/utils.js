@@ -16,7 +16,7 @@ export function getEntriesV2(res, def) {
     };
   }
   if (typeof res !== 'undefined' && res.status === 200) {
-    console.log(res)
+    console.log(res);
     const code = safeParse(res.status, 500);
     let message = safeParse(res.statusText, '');
     let data = def;

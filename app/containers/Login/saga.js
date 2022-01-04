@@ -46,7 +46,7 @@ function* handleSave() {
     yield put(
       dashboardAddNoti({
         severity: 'error',
-        content: 'Wrong email or password',
+        content: 'Wrong username or password',
       }),
     );
     yield put(initDone(`${PREFIX}@@ERROR`));
