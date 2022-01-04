@@ -1,0 +1,30 @@
+/* FONT FACE - font-display: fallback; */
+
+/* VÍ DỤ - tuỳ chỉnh theo từng dự án*/
+
+@font-face {
+  font-family: 'ppr';
+  src: url('../fonts/poppins-v15-latin-regular.woff2') format('woff2'),
+    url('../fonts/poppins-v15-latin-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'pp5';
+  src: url('../fonts/poppins-v15-latin-500.woff2') format('woff2'),
+    url('../fonts/poppins-v15-latin-500.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'pp7';
+  src: url('../fonts/poppins-v15-latin-700.woff2') format('woff2'),
+    url('../fonts/poppins-v15-latin-700.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
