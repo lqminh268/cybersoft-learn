@@ -2207,14 +2207,14 @@ article .video video {
 .header {
   background: #1d1d1d;
   width: 100%;
-  height: 100px;
+  height: 70px;
   padding: 0 1.5rem;
   transition: 0.3s ease all;
 }
 
 @media (min-width: 768px) {
   .header {
-    padding: 0 3rem;
+    padding: 0 4.8rem;
   }
 }
 
@@ -2359,6 +2359,70 @@ article .video video {
   .header__content__toggle {
     display: none;
   }
+}
+
+.footer__teach, .footer__companies, .footer__menu {
+  padding-left: 4.8rem;
+  padding-right: 4.8rem;
+  background: #1d1d1d;
+  color: #fff;
+  border-top: 1px solid #3e4143;
+}
+
+.footer__teach {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+}
+
+.footer__companies {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+.footer__menu .menu__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2.4rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.footer__menu .menu__list__items {
+  -moz-column-count: 3;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 20px;
+  column-count: 3;
+  column-gap: 100px;
+}
+
+.footer__menu .menu__list__items a {
+  color: #fff;
+}
+
+.footer__menu .menu__list__items a:hover {
+  text-decoration: underline;
+}
+
+.footer__logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6.4rem 0 3.2rem;
+}
+
+.footer__logo .footer__content__logo {
+  font-family: pp7;
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
 }
 
 /* Pages */

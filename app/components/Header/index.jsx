@@ -46,25 +46,25 @@ const Header = () => {
         <Link to="/" className="header__content__logo">
           Cybersoft Learn
         </Link>
-        <nav className={`header__content__nav ${menuOpen ? 'isMenu' : ''}`}>
+        <nav className={`header__content__nav ${menuOpen && window.innerWidth < 768 ? 'isMenu' : ''}`}>
           <ul>
             <li>
               <Link to="/page-one" onClick={menuToggleHandler}>
-                PageOne
+                Hi! Lê Quang Minh
               </Link>
             </li>
             <li>
               <Link to="/page-two" onClick={menuToggleHandler}>
-                PageTwo
+                Categories
               </Link>
             </li>
             <li>
               <Link to="/page-three" onClick={menuToggleHandler}>
-                PageThree
+                Profile
               </Link>
             </li>
           </ul>
-          <button onClick={ctaClickHandler}>CTA Page</button>
+          <button onClick={ctaClickHandler}>Logout</button>
         </nav>
         <div className="header__content__toggle">
           {!menuOpen ? (
