@@ -22,7 +22,7 @@ export const MAP_VALIDATE = {
   },
   password: ({ value, isRequired, maxLength }) => {
     let [isValidate, errors] = [true, []];
-    // const validRegex = /^.*(?=.{8,})(?=.*\d)(?=.*[a-zA-Z]).*$/g
+    const validRegex = /^.*(?=.{8,})(?=.*\d)(?=.*[a-zA-Z]).*$/g;
     if (
       typeof value === 'undefined' ||
       value === null ||
@@ -38,17 +38,19 @@ export const MAP_VALIDATE = {
     } else if (maxLength !== null && value.length > maxLength) {
       isValidate = false;
       errors = ['This field is required'];
-      // } else if (value.match(validRegex)) {
-      //   isValidate = true;
-      // } else {
-      //   isValidate = false;
-      //   errors = ['This field must be at least 8 characters and contain at least 1 letter and 1 number'];
+    } else if (value.match(validRegex)) {
+      isValidate = true;
+    } else {
+      isValidate = false;
+      errors = [
+        'This field must be at least 8 characters and contain at least 1 letter and 1 number',
+      ];
     }
     return { errors, isValidate };
   },
   email: ({ value, isRequired, maxLength }) => {
     let [isValidate, errors] = [true, []];
-    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const validRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (
       typeof value === 'undefined' ||
       value === null ||

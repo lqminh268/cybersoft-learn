@@ -36,6 +36,17 @@ export const MAP_INPUT_TEMPLATE = {
     }),
     componentEl: MAP_INPUT_TYPE.password,
   },
+  login_ui_password: {
+    ...initElementExplicit({
+      name: 'password',
+      value: '',
+      maxLength: MAX_LCODE,
+      isRequired: true,
+      label: 'Password',
+      validate: MAP_VALIDATE.singleLineText,
+    }),
+    componentEl: MAP_INPUT_TYPE.password,
+  },
   dateTimePicker: {
     ...initElementExplicit({
       name: 'dateTimePicker',

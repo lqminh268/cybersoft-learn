@@ -89,7 +89,11 @@ function Login(props) {
             </Stack>
             <Alert
               severity="info"
-              sx={{ mb: 3, backgroundColor: 'transparent', justifyContent: "center" }}
+              sx={{
+                mb: 3,
+                backgroundColor: 'transparent',
+                justifyContent: 'center',
+              }}
             >
               Use user : <strong>lq.minh268</strong> / password :
               <strong>&nbsp;Minh26081999</strong>
@@ -100,6 +104,16 @@ function Login(props) {
               onChange={onChange}
               isLoading={isLoading}
             />
+            <Typography variant="body2" align="center" sx={{ mt: 3 }}>
+              Don’t have an account?&nbsp;
+              <Link
+                variant="subtitle2"
+                // component={RouterLink}
+                to="/register"
+              >
+                Get started
+              </Link>
+            </Typography>
           </Paper>
         </ContentStyle>
       </Container>

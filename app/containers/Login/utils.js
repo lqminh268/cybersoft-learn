@@ -13,7 +13,7 @@ export const initDefaultDataConfig = () => ({
     grid: 6,
   },
   matKhau: {
-    ...MAP_INPUT_TEMPLATE.password,
+    ...MAP_INPUT_TEMPLATE.login_ui_password,
     name: 'matKhau',
     isRequired: true,
     label: 'Mật Khẩu',
