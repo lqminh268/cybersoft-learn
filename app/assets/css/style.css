@@ -703,6 +703,15 @@ article .video video {
   line-height: var(--h2-lh);
 }
 
+.primary-button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0 1.2rem;
+  height: 4.8rem;
+  min-width: 18rem;
+}
+
 .col-1,
 .col-2,
 .col-3,
@@ -2369,6 +2378,22 @@ article .video video {
   border-top: 1px solid #3e4143;
 }
 
+.footer__teach .footer-p-el, .footer__companies .footer-p-el, .footer__menu .footer-p-el {
+  font-size: var(--h5-fs);
+  font-family: pp5;
+  line-height: var(--h5-lh);
+  color: none;
+  text-transform: none;
+}
+
+.footer__teach .footer-p-el .highlight-test, .footer__companies .footer-p-el .highlight-test, .footer__menu .footer-p-el .highlight-test {
+  font-size: var(--h5-fs);
+  font-family: pp5;
+  line-height: var(--h5-lh);
+  color: #cec0fc;
+  text-transform: none;
+}
+
 .footer__teach {
   display: flex;
   justify-content: space-between;
@@ -2379,10 +2404,23 @@ article .video video {
 
 .footer__companies {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
+}
+
+.footer__companies .logo-companies ul {
+  align-items: center;
+}
+
+.footer__companies .logo-companies ul .logo-companies-item {
+  margin: 1.2rem 0;
+  margin-right: 2.4rem;
+}
+
+.footer__companies .logo-companies ul .logo-companies-item.last-logo-item {
+  margin-right: 0px;
 }
 
 .footer__menu .menu__list {
@@ -2408,6 +2446,10 @@ article .video video {
 
 .footer__menu .menu__list__items a:hover {
   text-decoration: underline;
+}
+
+.footer__menu .menu__list .primary-button svg {
+  margin-right: 0.5rem;
 }
 
 .footer__logo {

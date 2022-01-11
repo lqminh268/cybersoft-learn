@@ -8,6 +8,12 @@
     background: $black-cl;
     color: $white-cl;
     border-top: 1px solid #3e4143;
+    .footer-p-el {
+      @include text(var(--h5-fs), pp5, var(--h5-lh), none, none);
+      .highlight-test {
+        @include text(var(--h5-fs), pp5, var(--h5-lh), $purple-cl, none);
+      }
+    }
   }
   &__teach {
     display: flex;
@@ -18,10 +24,23 @@
   }
   &__companies {
     display: flex;
-    justify-content: space-between;
+    // flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
+    .logo-companies {
+      ul {
+        align-items: center;
+        .logo-companies-item {
+          margin: 1.2rem 0;
+          margin-right: 2.4rem;
+          &.last-logo-item {
+            margin-right: 0px;
+          }
+        }
+      }
+    }
   }
   &__menu {
     .menu__list {
@@ -40,8 +59,13 @@
         a {
           color: $white-cl;
           &:hover {
-              text-decoration: underline;
+            text-decoration: underline;
           }
+        }
+      }
+      .primary-button {
+        svg {
+          margin-right: 0.5rem;
         }
       }
     }
